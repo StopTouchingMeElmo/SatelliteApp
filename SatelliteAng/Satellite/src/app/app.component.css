@@ -1,0 +1,114 @@
+/* Layouts Style 2 */
+/* body,
+html {
+  height: 100%;
+  display: grid;
+} */
+
+.container {
+  display: grid;
+  grid-template-areas:
+    "title title"
+    "satellitesDisplay sideColumn"
+    "signalChart signalChart ";
+  grid-template-columns: 1fr 0.5fr;
+  grid-template-rows: 0.1fr 1fr 0.1fr;
+  justify-content: center;
+  text-align: center;
+
+}
+
+/* Areas */
+h1 {
+  grid-area: title;
+}
+
+.canvasesContainer {
+  grid-area: satellitesDisplay;
+}
+
+.signalChart {
+  display: grid;
+  grid-area: signalChart;
+  /* margin: auto; */
+  /* margin-right: 0px; */
+  justify-content: center;
+}
+
+.sideColumn {
+  display: grid;
+  grid-area: sideColumn;
+  grid-template-rows: 60px 60px 60px;
+  /* justify-content: left; */
+}
+
+/* End of Areas */
+
+
+.canvasesContainer {
+  margin: auto;
+  display: grid;
+  position: relative;
+  width: 540px;
+  height: 540px;
+  margin-right: 0px;
+  justify-content: right;
+}
+
+
+canvas {
+ /*  display: grid; */
+  border: 1px solid black;
+  border-radius: 50%;
+  position: absolute;
+ /*  justify-content: right; */
+  /* left: 0px; */
+}
+
+#absoluteCanvas {
+  z-index: 1;
+  
+}
+
+.mat-flat-button {
+  margin: 5px;
+}
+
+
+/* Layouts Style 1 */
+/* body,
+html {
+  height: 100%;
+  display: grid;
+}
+
+.canvasesContainer
+{
+  margin: auto;
+  position: relative;
+  width: 540px;
+  height: 540px;
+}
+.container {
+  display: grid;
+  grid-template-rows: 0.1fr 1fr 0.1fr 0.1fr;
+  justify-content: center;
+  text-align: center;
+ 
+}
+
+canvas { 
+  border: 1px solid black;
+  border-radius: 50%;
+  position: absolute;
+  left: 0px;
+}
+
+#absoluteCanvas
+{
+  z-index: 1000000000000000000;
+}
+
+.mat-flat-button {
+  margin: 5px;
+} */

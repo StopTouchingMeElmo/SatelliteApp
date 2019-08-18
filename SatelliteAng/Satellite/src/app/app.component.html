@@ -1,0 +1,54 @@
+<!--Layouts Style 2-->
+<div class="container">
+  <h1>
+    Welcome to Satellite Live Screen!
+  </h1>
+
+  <div class="canvasesContainer">
+    <canvas #canvas id="absoluteCanvas" height="540" width="540">
+
+    </canvas>
+    <canvas #canvasForSatellites height="540" width="540">
+
+    </canvas>
+  </div>
+
+  <div class="signalChart">
+    <app-signal-strength-chart [dataSource]="dataSource"></app-signal-strength-chart>
+  </div>
+
+  <div class="sideColumn">
+    <button mat-fab color="primary" (click)="startSendMessage()">Start</button>
+    <button mat-fab color="warn" (click)="stopSendMessage()">Stop</button>
+    <button mat-fab [ngStyle]="{'background-color': 'grey'}" (click)="openDialog()">Info</button>
+  </div>
+
+</div>
+
+<!--Layouts Style 1-->
+<!-- <div class="container">
+  <h1>
+    Welcome to Satellite Live Screen!
+  </h1>
+
+  <div class="canvasesContainer">
+    <canvas #canvas id="absoluteCanvas" height="540" width="540">
+
+    </canvas>
+    <canvas #canvasForSatellites height="540" width="540">
+
+    </canvas>
+  </div>
+
+  <app-signal-strength-chart [dataSource]="dataSource"></app-signal-strength-chart>
+
+  <button mat-fab color="primary" (click)="startSendMessage()">Start</button>
+  <button mat-fab color="warn" (click)="stopSendMessage()">Stop</button>
+
+</div> -->
+
+<!-- mat-stroked-button color="primary"
+mat-stroked-button color="warn" -->
+
+<!-- mat-flat-button color="primary"
+mat-flat-button color="warn" -->
