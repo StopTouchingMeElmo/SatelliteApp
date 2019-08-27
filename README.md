@@ -1,3 +1,5 @@
+The application was pushed on Aug 19, 2019, 2:52.
+
 The hosted version is here: http://35.228.34.242:3000 (now (since 23.08.19) is not available)
 
 Instruction for the local version:
