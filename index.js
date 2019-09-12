@@ -43,12 +43,12 @@ let intervalIds = [];
 let rl;
 let messages = [];
 
-async function pause(seconds) {
+/* async function pause(seconds) {
   setTimeout(() => {
     return;
   }, 4000);
   return undefined;
-}
+} */
 
 
 io.on('connection', function (socket) {
@@ -114,7 +114,7 @@ io.on('connection', function (socket) {
         }     
         messageCounter++;
       }
-    }, 100)));
+    }, 50)));
 
     // event is emitted after each line
 
