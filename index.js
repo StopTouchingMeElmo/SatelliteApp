@@ -33,9 +33,9 @@ let GSActiveValuesEnum = Object.freeze({
   "satAcuisitionMode": 1,
   "positioningMode": 2,
   "idsOfUsedSats": 3,
-  "pdop": 13,
-  "hdop": 14,
-  "vdop": 15
+  "pdop": 15,
+  "hdop": 16,
+  "vdop": 17
 
 });
 
@@ -75,15 +75,30 @@ io.on('connection', function (socket) {
           parsedMessage[GSViewValuesEnum.totalNumberSatInView]);
         for (let index = 0; index < 4; index++) {
           message.satellites.push(new Satellite(
-            parsedMessage[oneSatelliteValuesEnum.idNumber + index],
-            parsedMessage[oneSatelliteValuesEnum.elevation + index],
-            parsedMessage[oneSatelliteValuesEnum.azimuth + index],
-            parsedMessage[oneSatelliteValuesEnum.snr + index]));
+            parsedMessage[oneSatelliteValuesEnum.idNumber + (index*4)],
+            parsedMessage[oneSatelliteValuesEnum.elevation + (index*4)],
+            parsedMessage[oneSatelliteValuesEnum.azimuth + (index*4)],
+            parsedMessage[oneSatelliteValuesEnum.snr + (index*4)]));
         }
 
       }
 
       if (parsedMessage[0] === '$GPGSA') {
+        let idsOfUsedSats = [];
+        for (let i = 0; i < 12; i++) {
+          idsOfUsedSats.push(parsedMessage[GSActiveValuesEnum.idsOfUsedSats + i]);
+        }
+        message = new GSActiv(parsedMessage[GSActiveValuesEnum.messageType],
+          checkSum[0],
+          checkSum[1],
+          parsedMessage[GSActiveValuesEnum.satAcuisitionMode],
+          parsedMessage[GSActiveValuesEnum.positioningMode],
+          idsOfUsedSats,
+          parsedMessage[GSActiveValuesEnum.pdop],
+          parsedMessage[GSActiveValuesEnum.hdop],
+          parsedMessage[GSActiveValuesEnum.hdop]);
+      }
+      /* if (parsedMessage[0] === '$GPGSA') {
         message = new GSActiv(parsedMessage[GSActiveValuesEnum.messageType],
           checkSum[0],
           checkSum[1],
@@ -96,7 +111,7 @@ io.on('connection', function (socket) {
           parsedMessage[GSActiveValuesEnum.pdop],
           parsedMessage[GSActiveValuesEnum.hdop],
           parsedMessage[GSActiveValuesEnum.hdop]);
-      }
+      } */
 
       messages.push(message);
 

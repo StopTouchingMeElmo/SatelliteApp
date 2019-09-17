@@ -16,7 +16,7 @@ import { BrowserAnimationsModule, NoopAnimationsModule } from '@angular/platform
 
 
 import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
-const config: SocketIoConfig = { url: 'http://localhost:3000/', options: {} };
+const config: SocketIoConfig = { url: 'http://84.201.128.128:3000/', options: {} };
 
 import { AppComponent } from './app.component';
 import { SignalStrengthChartComponent } from './signal-strength-chart/signal-strength-chart.component';
