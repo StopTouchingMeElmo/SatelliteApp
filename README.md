@@ -8,3 +8,4 @@ Instruction for the local version:
 3. In folder SatelliteApp/SatelliteAng/Satellite install node_modules
 4. In folder SatelliteApp start server (node index.js)
 5. Go to http://localhost:3000 to use web application
+p.s in file app.module.ts fix string 19 to localhost:3000
